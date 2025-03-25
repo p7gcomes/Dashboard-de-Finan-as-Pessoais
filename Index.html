@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Finanças</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #1e1e2f; color: white; }
+        .container { max-width: 800px; margin: 20px auto; }
+        canvas { background: #fff; border-radius: 10px; padding: 10px; }
+        .table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .table th, .table td { padding: 10px; border: 1px solid #fff; }
+        .table th { background: #333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard de Finanças</h1>
+        <canvas id="financeChart"></canvas>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Valor (R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Alimentação</td><td>R$ 500,00</td></tr>
+                <tr><td>Transporte</td><td>R$ 300,00</td></tr>
+                <tr><td>Entretenimento</td><td>R$ 200,00</td></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        const ctx = document.getElementById('financeChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Alimentação', 'Transporte', 'Entretenimento'],
+                datasets: [{
+                    label: 'Gastos Mensais',
+                    data: [500, 300, 200],
+                    backgroundColor: ['#ff6384', '#36a2eb', '#ffcd56']
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
